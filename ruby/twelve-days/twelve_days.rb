@@ -3,7 +3,7 @@ class TwelveDays
   def self.song
     intro_start = "On the "
     intro_end = " day of Christmas my true love gave to me: "
-    part_1 = "and a Partridge in a Pear Tree. \n\n"
+    part_1 = "and a Partridge in a Pear Tree."
     part_2 = "two Turtle Doves, "
     part_3 = "three French Hens, "
     part_4 = "four Calling Birds, "
@@ -25,12 +25,15 @@ class TwelveDays
     12.times do |sing|
       counter += 1
       if sing == 0
-        @lyrics += intro_start + day_array[sing] + intro_end + part_1[4..-1]
+        @lyrics += intro_start + day_array[sing] + intro_end + part_1[4..-1] + " \n\n"
       else
         counter.times do |repeat|
           song_placeholder.prepend(song_array[repeat])
         end
         @lyrics += intro_start + day_array[sing] + intro_end + song_placeholder
+        if sing < 11
+          @lyrics += " \n\n"
+        end
         song_placeholder = ""
       end
     end
