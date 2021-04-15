@@ -10,6 +10,8 @@ class Grains
   def self.square(number)
     if number > 0 && number <= 64
       square = 2 ** (number - 1)
+    else
+        raise ArgumentError
     end
   end
 
